@@ -7,16 +7,25 @@
     <p>(Paragraph Goes Here)</p>
 </div>
 
-<div class="card-columns" style="column-count: 2;">
-    @for (int i = 0; i < 10; i++)
+<div class="card-columns">
+    @{
+        for (int i = 0; i < 12; i++)
+        {
+            renderCard("Card " + (i + 1), "Description " + (i + 1));
+        }
+    }
+</div>
+
+@{
+    void renderCard(string title, string text)
     {
         <div class="card text-center">
             <div class="card-body">
-                <h5 class="card-title">(Card @(i + 1) Title Goes Here)</h5>
+                <h5 class="card-title">@title</h5>
                 <div class="card-text">
-                    <p>(Card @(i + 1) Text Goes Here)</p>
+                    <p>@text</p>
                 </div>
             </div>
         </div>
     }
-</div>
+}
