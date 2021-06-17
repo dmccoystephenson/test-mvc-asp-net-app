@@ -9,23 +9,40 @@
 
 <div class="card-columns">
     @{
-        for (int i = 0; i < 12; i++)
-        {
-            renderCard("Card " + (i + 1), "Description " + (i + 1));
-        }
+        renderCard(
+            "Apple",
+            "Red and Round",
+            "/Apple" // redirect to apple controller
+            );
+        renderCard(
+            "Banana",
+            "Yellow and Curvy",
+            "/Banana" // redirect to banana controller
+            );
+        renderCard(
+            "Carrot",
+            "Orange and Straight",
+            "/Carrot" // redirect to carrot controller
+            );
     }
 </div>
 
 @{
-    void renderCard(string title, string text)
+    void renderCard(string title, string text, string url)
     {
-        <div class="card text-center">
+        <div class="card text-center" onclick="redirect('@url')"> <!-- redirect on click -->
             <div class="card-body">
-                <h5 class="card-title">@title</h5>
+                <h5 class="card-title">@title</h5> <!-- display card title -->
                 <div class="card-text">
-                    <p>@text</p>
+                    <p>@text</p> <!-- display card text -->
                 </div>
             </div>
         </div>
     }
 }
+
+<script>
+    function redirect(url) {
+        location.href = url; // redirect user to url
+    }
+</script>
